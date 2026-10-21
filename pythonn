@@ -1,0 +1,260 @@
+1:
+for i in range(15,0,-1):
+    print(i)
+
+
+2:
+#1+2^2+3^3
+n=int(input('Enter No '))
+sum=0
+for i in range(1,n+1):
+    sum = sum + (i**i)
+print(sum)
+
+
+3:
+n=int(input('Enter No '))
+temp=n
+sum = 0
+while temp>0:
+    re=temp%10
+    sum+=re**3
+    temp//=10
+    if(n==sum):
+        print(n,"The number is armstrong")
+    else:
+        print(n,"The number is not armstrong")
+
+
+4:
+#1-3+5-7+9-11 
+n=int(input('Enter No '))
+flag =1
+sum = 0
+for i in range(1,n+1,2): 
+    sum = sum + (i*flag)
+    flag=flag*-1
+print(sum)
+
+
+5:
+unit =int(input('Enter no of Units '))
+if (unit<=100):
+    bill= unit *2
+elif (unit<=200):
+    bill = (100*2) + (unit-100) *3
+elif (unit<=300):
+    bill = (100*2)+ (100*3) + (unit-100) *5
+else :
+    bill = (100*2)+ (100*3) +(100*5) + (unit-100) *7
+
+print('Total amount of bill is =₹',bill)
+
+
+6:
+a=int(input('Enter number'))
+if a%2==0:
+    
+    print('Number is even')
+else :
+    print('Number is odd')
+
+
+7:
+#print first 10 even no
+i=2
+while i<=20:
+    print(i)
+    i=i+2
+print("end")
+
+
+8:
+#find factorial of given no
+i=1
+ans=1
+n=int(input('Enter No '))
+while i<=n:
+    ans=ans*i
+    i=i+1
+print(ans)
+
+
+9:
+#fibbonancci series upto n
+n=int(input("Enter no")) 
+a=0
+b=1
+c=None
+print(a,end=" ")
+print(b,end=" ")
+while 1:
+    c=a+b
+    a=b
+    b=c
+    if(c>n):
+        break
+    else:
+        print(c,end=" ")
+
+
+10:
+#print first 10 no
+i=1
+while i<=10:
+    print(i)
+    i=i+1
+
+
+11:
+Income=int(input("Enter Income "))
+if Income>=100000:
+    print('Premium Loan')   
+elif Income>=50000:
+    print('Standard Loan')
+elif Income>=25000:
+    print('Basic Loan')
+else :
+    print('Not Eligible')
+
+
+12:
+a,b,c,d=int(input('Enter 4 Number'))
+if a>b and a>c and a>d :
+    print('Max number is: ',a)
+elif b>a and b>c and b>d :
+    print('Max number is: ',b)
+elif c>a and c>b and c>d :
+    print('Max number is: ',c)
+else :
+    print('Max number is: ',d)
+
+
+13:
+Age =int(input('Enter your Age '))
+if (Age<5):
+    print('Free')
+elif (Age>=5 and Age<=12):
+     print('₹100')
+elif (Age>=13 and Age<=59):
+     print('₹200')
+else :
+     print('₹150')
+
+
+14:
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(j,end=" ")
+    print()
+
+
+15:
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(i,end=" ")
+    print()
+
+
+16:
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+j),end=" ")
+    print()
+
+
+17:
+for i in range(1,6):
+    for j in range(1,i+1):
+        print(chr(64+i),end=" ")
+    print()
+
+
+18:
+w=5
+for i in range(1,6):
+    for j in range(1,w):
+        print(end="  ")
+    w=w-1
+    for j in range(1,i+1):
+            print(j,end=" ")
+    print()
+
+
+19:
+w=5
+for i in range(1,6):
+    for j in range(1,w):
+        print(end=" ")
+    w=w-1
+    for j in range(1,i+1):
+            print(j,end=" ")
+    print()
+
+
+20:
+w=5
+for i in range(5,0,-1):
+    for j in range(1,w):
+        print(end="")
+    w=w-1
+    for j in range(1,i+1):
+            print(j,end=" ")
+    print()
+
+
+21:
+n=int(input('Enter No :'))
+cou=0
+for i in range(1,n+1):
+    if n%i==0:
+        cou += 1
+if cou ==2:
+    print("Prime num")
+else:
+    print("Not Prime num")
+
+
+22:
+#find rev of given no
+n=int(input('Enter No '))
+rem=0
+temp = n
+while (n!=0):
+    rev= n%10
+    rev = rev *10 +rem
+    n=n/10
+print(rev)
+
+
+23:
+Mark =int(input('Enter Marks '))
+if (Mark>=90):
+    print('Grade A')
+elif (Mark>=80):
+    print('Grade B')
+elif (Mark>=70):
+    print('Grade C')
+elif (Mark>=60):
+    print('Grade D')
+else :
+    print('Grade F')
+
+
+24:
+#find sum of given no
+i=1
+sum=0
+n=int(input('Enter No '))
+while i<=n:
+    n= n%10
+    sum = sum + i
+    i=i+1
+print(sum)
+
+
+25:
+sum=0
+for i in range(1,11):
+    sum = sum + i
+print(sum)
