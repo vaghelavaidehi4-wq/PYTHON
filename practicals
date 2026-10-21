@@ -1,0 +1,609 @@
+"""Program 1.1: print basic student details."""
+name = 'Your Full Name'
+roll_no = 'Your Roll Number'
+programme = 'M.Sc. IT'
+semester = 'Semester 1'
+print(name)
+print(roll_no)
+print(programme)
+print(semester)
+
+
+"""Program 1.2: formatted introduction."""
+name = input('Enter your name: ')
+age = input('Enter your age: ')
+city = input('Enter your favourite city: ')
+print('Hello! My name is ' + name + '. I am ' + age + ' years old and I love ' + city + '.')
+
+
+"""Program 1.3: simple interest calculator."""
+principal = float(input('Enter principal amount: '))
+rate = float(input('Enter annual rate (%): '))
+time = float(input('Enter time (years): '))
+interest = principal * rate * time / 100
+print('Simple interest:', round(interest, 2))
+print('Total amount:', round(principal + interest, 2))
+
+
+"""Program 1.4: Celsius to Fahrenheit and Kelvin."""
+celsius = float(input('Enter temperature in Celsius: '))
+fahrenheit = celsius * 9 / 5 + 32
+kelvin = celsius + 273.15
+print('Fahrenheit:', round(fahrenheit, 2), 'F')
+print('Kelvin:', round(kelvin, 2), 'K')
+
+
+"""Program 1.5: rectangle and circle calculations."""
+from math import pi
+length = float(input('Enter rectangle length: '))
+breadth = float(input('Enter rectangle breadth: '))
+print('Rectangle area:', round(length * breadth, 2))
+print('Rectangle perimeter:', round(2 * (length + breadth), 2))
+print('Circle area (radius = length):', round(pi * length ** 2, 2))
+
+
+"""Program 1.6: salary calculator."""
+basic = float(input('Enter basic salary: '))
+hra = basic * 0.2
+da = basic * 0.1
+pf = basic * 0.12
+gross = basic + hra + da
+print('Gross salary:', round(gross, 2))
+print('Net salary:', round(gross - pf, 2))
+
+
+"""Program 1.7: extract digits of a three-digit number."""
+number = int(input('Enter a three-digit number: '))
+if 100 <= abs(number) <= 999:
+    number = abs(number)
+    hundreds, remainder = divmod(number, 100)
+    tens, units = divmod(remainder, 10)
+    print('Hundreds:', hundreds)
+    print('Tens:', tens)
+    print('Units:', units)
+    print('Sum:', hundreds + tens + units)
+    print('Product:', hundreds * tens * units)
+else:
+    print('Please enter exactly a three-digit number.')
+
+
+"""Program 1.8: kilometre converter."""
+kilometres = float(input('Enter distance in kilometres: '))
+print('Metres:', round(kilometres * 1000, 2))
+print('Centimetres:', round(kilometres * 100000, 2))
+print('Miles:', round(kilometres * 0.621371, 2))
+print('Feet:', round(kilometres * 3280.84, 2))
+
+
+"""Program 1.9: swap two numbers in two ways."""
+a = float(input('Enter first number: '))
+b = float(input('Enter second number: '))
+original_a, original_b = (a, b)
+print('Before swap: a =', a, ', b =', b)
+a, b = (b, a)
+print('Tuple swap: a =', a, ', b =', b)
+a, b = (original_a, original_b)
+a = a + b
+b = a - b
+a = a - b
+print('Arithmetic swap: a =', a, ', b =', b)
+
+
+"""Program 1.10: BMI calculator."""
+weight = float(input('Enter weight in kg: '))
+height = float(input('Enter height in metres: '))
+if height <= 0:
+    print('Height must be greater than zero.')
+else:
+    bmi = weight / height ** 2
+    if bmi < 18.5:
+        category = 'Underweight'
+    elif bmi < 25:
+        category = 'Normal'
+    elif bmi < 30:
+        category = 'Overweight'
+    else:
+        category = 'Obese'
+    print('BMI:', round(bmi, 2), '(' + category + ')')
+
+
+"""Program 1.11: marks, percentage and average."""
+marks = []
+for subject in range(1, 6):
+    marks.append(float(input('Enter marks for subject ' + str(subject) + ': ')))
+total = sum(marks)
+print('Total:', round(total, 2), '/500')
+print('Percentage:', round(total / 5, 2), '%')
+print('Average:', round(total / 5, 2))
+
+
+"""Program 1.12: electric bill calculator."""
+previous = float(input('Enter previous meter reading: '))
+current = float(input('Enter current meter reading: '))
+units = current - previous
+if units < 0:
+    print('Current reading cannot be less than previous reading.')
+else:
+    print('Units consumed:', round(units, 2))
+    print('Total bill: Rs.', round(units * 5.5 + 100, 2))
+
+
+"""Program 1.13: classify a number."""
+number = int(input('Enter an integer: '))
+sign = 'positive' if number > 0 else 'negative' if number < 0 else 'zero'
+parity = 'even' if number % 2 == 0 else 'odd'
+divisible = 'is' if number % 5 == 0 else 'is not'
+print('The number is', sign + ',', parity + ', and', divisible, 'divisible by 5.')
+
+
+"""Program 1.14: grade calculator."""
+marks = float(input('Enter marks: '))
+if marks >= 90:
+    grade = 'A+'
+elif marks >= 80:
+    grade = 'A'
+elif marks >= 70:
+    grade = 'B'
+elif marks >= 60:
+    grade = 'C'
+elif marks >= 35:
+    grade = 'D'
+else:
+    grade = 'Fail'
+print('Grade:', grade)
+if marks >= 90:
+    print('Distinction')
+
+
+"""Program 1.15: multiplication table."""
+number = int(input('Enter a number: '))
+for value in range(1, 11):
+    print(number, 'x', value, '=', number * value)
+
+
+"""Program 1.16: factorial using a for loop."""
+number = int(input('Enter a non-negative integer: '))
+if number < 0:
+    print('Factorial is not defined for negative numbers.')
+else:
+    fact = 1
+    for value in range(2, number + 1):
+        fact *= value
+    print(number, '! =', fact)
+
+
+"""Program 1.17: check a prime and list primes."""
+
+def is_prime(number):
+    if number < 2:
+        return False
+    for divisor in range(2, int(number ** 0.5) + 1):
+        if number % divisor == 0:
+            return False
+    return True
+number = int(input('Enter N: '))
+if is_prime(number):
+    print(number, 'is prime.')
+else:
+    print(number, 'is not prime.')
+print('Primes from 2 to N:', *[n for n in range(2, number + 1) if is_prime(n)])
+
+
+"""Program 1.18: Fibonacci series with while loop."""
+terms = int(input('How many terms? '))
+a, b, count = (0, 1, 0)
+while count < terms:
+    print(a, end=' ')
+    a, b = (b, a + b)
+    count += 1
+print()
+
+
+"""Program 1.19: reverse and test a number."""
+original = int(input('Enter a non-negative number: '))
+if original < 0:
+    print('Please enter a non-negative number.')
+else:
+    number, reverse = (original, 0)
+    while number > 0:
+        reverse = reverse * 10 + number % 10
+        number //= 10
+    print('Reversed number:', reverse)
+    print('It is a palindrome.' if original == reverse else 'It is not a palindrome.')
+
+
+"""Program 1.20: star pattern collection."""
+rows = 5
+print('Right-angled triangle')
+for i in range(1, rows + 1):
+    print('*' * i)
+print('Inverted triangle')
+for i in range(rows, 0, -1):
+    print('*' * i)
+print('Diamond')
+for i in range(1, rows + 1, 2):
+    print(' ' * ((rows - i) // 2) + '*' * i)
+for i in range(rows - 2, 0, -2):
+    print(' ' * ((rows - i) // 2) + '*' * i)
+
+
+"""Program 1.21: Armstrong number checker and finder."""
+
+def is_armstrong(number):
+    digits = str(number)
+    return number == sum((int(digit) ** len(digits) for digit in digits))
+number = int(input('Enter a number: '))
+if is_armstrong(number):
+    print(number, 'is an Armstrong number.')
+else:
+    print(number, 'is not an Armstrong number.')
+print('Armstrong numbers from 1 to 999:')
+print(*[n for n in range(1, 1000) if is_armstrong(n)])
+
+
+"""Program 1.22: ATM PIN simulator."""
+correct_pin = '1234'
+attempts = 0
+while attempts < 3:
+    pin = input('Enter your 4-digit PIN: ')
+    if pin == correct_pin:
+        print('Access Granted')
+        break
+    attempts += 1
+    print('Incorrect PIN')
+else:
+    print('Card Blocked')
+
+
+"""Program 1.23: sums of natural numbers, squares and cubes."""
+number = int(input('Enter N: '))
+natural = squares = cubes = 0
+for value in range(1, number + 1):
+    natural += value
+    squares += value ** 2
+    cubes += value ** 3
+print('Natural number sum:', natural)
+print('Square sum:', squares)
+print('Cube sum:', cubes)
+
+
+"""Program 1.24: ascending and descending number patterns."""
+for row in range(1, 6):
+    for number in range(1, row + 1):
+        print(number, end=' ')
+    print()
+print('Reverse pattern')
+for row in range(5, 0, -1):
+    for number in range(1, row + 1):
+        print(number, end=' ')
+    print()
+
+
+"""Program 2.1: basic functions."""
+
+def greet(name):
+    print('Hello, ' + name + '!')
+
+def square(number):
+    return number ** 2
+
+def cube(number):
+    return number ** 3
+for name, number in [('Aarav', 2), ('Diya', 3), ('Kunal', 4)]:
+    greet(name)
+    print('Square of', number, ':', square(number))
+    print('Cube of', number, ':', cube(number))
+
+
+"""Program 2.2: prime checker function."""
+
+def is_prime(number):
+    if number < 2:
+        return False
+    for divisor in range(2, int(number ** 0.5) + 1):
+        if number % divisor == 0:
+            return False
+    return True
+roll_no = int(input('Enter your roll number: '))
+for number in range(roll_no, roll_no + 11):
+    print(number, ':', 'Prime' if is_prime(number) else 'Not prime')
+
+
+"""Program 2.3: factorial table using a function."""
+
+def factorial(number):
+    result = 1
+    for value in range(2, number + 1):
+        result *= value
+    return result
+print('Number  Factorial')
+for number in range(1, 11):
+    print(number, '=', factorial(number))
+
+
+"""Program 2.4: multi-return statistics function."""
+
+def stats(a, b, c):
+    return (a + b + c, (a + b + c) / 3, min(a, b, c), max(a, b, c))
+values = [float(input('Enter number ' + str(i) + ': ')) for i in range(1, 4)]
+total, average, minimum, maximum = stats(*values)
+print('Sum:', total)
+print('Average:', round(average, 2))
+print('Minimum:', minimum)
+print('Maximum:', maximum)
+
+
+"""Program 2.5: reverse strings and check palindromes."""
+
+def reverse_string(text):
+    return text[::-1]
+
+def is_palindrome(text):
+    return text.lower() == reverse_string(text).lower()
+samples = ['madam', 'racecar', 'Your Name', 'Your City']
+for text in samples:
+    print(text, ': reverse =', reverse_string(text), ', palindrome =', is_palindrome(text))
+
+
+"""Program 2.6: vowel and character frequency functions."""
+
+def count_vowels(text):
+    return sum((char.lower() in 'aeiou' for char in text))
+
+def char_frequency(text):
+    counts = {}
+    for char in text:
+        counts[char] = counts.get(char, 0) + 1
+    return counts
+sentence = input('Enter a sentence: ')
+print('Vowels:', count_vowels(sentence))
+print('Character frequency:', char_frequency(sentence))
+
+
+"""Program 2.7: menu-driven modular calculator."""
+
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    return a / b
+
+def power(a, b):
+    return a ** b
+operations = {'1': ('Add', add), '2': ('Subtract', subtract), '3': ('Multiply', multiply), '4': ('Divide', divide), '5': ('Power', power)}
+for key, (name, _) in operations.items():
+    print(key + '.', name)
+choice = input('Choose an operation: ')
+if choice in operations:
+    a, b = (float(input('First number: ')), float(input('Second number: ')))
+    try:
+        print('Result:', operations[choice][1](a, b))
+    except ZeroDivisionError:
+        print('Cannot divide by zero.')
+else:
+    print('Invalid choice.')
+
+
+"""Program 2.8: common string methods."""
+sentence = input('Enter a sentence: ')
+print('Upper:', sentence.upper())
+print('Lower:', sentence.lower())
+print('Title:', sentence.title())
+print('Stripped:', sentence.strip())
+print('Words:', sentence.split())
+print('Underscores:', sentence.replace(' ', '_'))
+print("First 'a':", sentence.find('a'))
+
+
+"""Program 2.9: anagram checker."""
+
+def is_anagram(first, second):
+    return sorted(first.replace(' ', '').lower()) == sorted(second.replace(' ', '').lower())
+pairs = [('listen', 'silent'), ('earth', 'heart'), ('python', 'typhon'), ('hello', 'world')]
+for first, second in pairs:
+    print(first + ',', second + ':', is_anagram(first, second))
+
+
+"""Program 2.10: formatted report card using f-strings."""
+student_name, roll_no = ('Your Name', 'Your Roll No.')
+marks = [85, 78, 92, 88, 81]
+total, percentage = (sum(marks), sum(marks) / 5)
+grade = 'A+' if percentage >= 90 else 'A' if percentage >= 80 else 'B' if percentage >= 70 else 'C' if percentage >= 60 else 'D' if percentage >= 35 else 'Fail'
+print(f"{'REPORT CARD':^34}\n{'Name:':15}{student_name}\n{'Roll No.:':15}{roll_no}\n{'Marks:':15}{marks}\n{'Total:':15}{total}/500\n{'Percentage:':15}{percentage:.2f}%\n{'Grade:':15}{grade}")
+
+
+"""Program 2.11: function with default parameters."""
+
+def display_info(name, city='Ahmedabad', programme='M.Sc. IT'):
+    print('Name:', name, 'City:', city, 'Programme:', programme)
+display_info('Riya', 'Surat', 'MCA')
+display_info('Aman')
+display_info('Neha', 'Vadodara')
+
+
+"""Program 2.12: sort and filter student records."""
+students = [('Aarav', 82), ('Diya', 55), ('Kabir', 91), ('Meera', 67), ('Rohan', 48)]
+sorted_students = sorted(students, key=lambda student: student[1], reverse=True)
+passed_students = list(filter(lambda student: student[1] >= 60, students))
+print('Sorted by marks:', sorted_students)
+print('Marks >= 60:', passed_students)
+
+
+"""Program 3.1: list statistics."""
+count = int(input('How many numbers? '))
+numbers = [float(input('Number ' + str(i) + ': ')) for i in range(1, count + 1)]
+if numbers:
+    print('List:', numbers)
+    print('Sorted:', sorted(numbers))
+    print('Reversed:', list(reversed(numbers)))
+    print('Max:', max(numbers))
+    print('Min:', min(numbers))
+    print('Sum:', sum(numbers))
+    print('Average:', round(sum(numbers) / len(numbers), 2))
+else:
+    print('No numbers entered.')
+
+
+"""Program 3.2: stack using a list."""
+stack = []
+
+def push(item):
+    stack.append(item)
+
+def pop():
+    return stack.pop() if stack else 'Stack is empty'
+
+def peek():
+    return stack[-1] if stack else 'Stack is empty'
+
+def is_empty():
+    return not stack
+
+def display():
+    print('Stack:', stack)
+for item in [10, 20, 30, 40, 50]:
+    push(item)
+display()
+print('Peek:', peek())
+print('Popped:', pop(), pop())
+display()
+print('Is empty:', is_empty())
+
+
+"""Program 3.3: list comprehension examples."""
+sentence = 'Python makes programming simple and enjoyable'
+print('Squares:', [number ** 2 for number in range(1, 21)])
+print('Even numbers:', [number for number in range(1, 51) if number % 2 == 0])
+print('Long words:', [word for word in sentence.split() if len(word) > 4])
+print('Odd cubes:', [number ** 3 for number in range(1, 16) if number % 2 != 0])
+
+
+"""Program 3.4: tuple operations."""
+marks = (72, 85, 91, 68, 79)
+print('Marks:', marks)
+print('First mark:', marks[0])
+print('Slice 1:4:', marks[1:4])
+print('Length:', len(marks))
+minimum, maximum, average = (min(marks), max(marks), sum(marks) / len(marks))
+print('Min:', minimum, 'Max:', maximum, 'Average:', round(average, 2))
+try:
+    marks[0] = 100
+except TypeError as error:
+    print('Tuple cannot be modified:', error)
+updated_marks = list(marks)
+updated_marks[0] = 100
+marks = tuple(updated_marks)
+print('Updated tuple:', marks)
+
+
+"""Program 3.5: dictionary-based phone book."""
+phone_book = {'Aarav': '9876543210', 'Diya': '9876543211', 'Kabir': '9876543212', 'Meera': '9876543213', 'Rohan': '9876543214'}
+name = input('Search contact name: ')
+print('Number:', phone_book.get(name, 'Contact not found'))
+phone_book['Diya'] = '9999999999'
+removed = phone_book.pop('Rohan')
+print('Updated Diya number and removed Rohan:', removed)
+for contact in sorted(phone_book):
+    print(contact + ':', phone_book[contact])
+
+
+"""Program 3.6: count words by frequency."""
+paragraph = input('Enter a paragraph: ').lower()
+counts = {}
+for word in paragraph.replace('.', '').replace(',', '').split():
+    counts[word] = counts.get(word, 0) + 1
+for word, count in sorted(counts.items(), key=lambda item: item[1], reverse=True):
+    print(word + ':', count)
+
+
+"""Program 3.7: set operations."""
+odd_numbers = set(range(1, 16, 2))
+multiples_of_three = set(range(3, 16, 3))
+print('Odd numbers:', odd_numbers)
+print('Multiples of 3:', multiples_of_three)
+print('Union:', odd_numbers | multiples_of_three)
+print('Intersection:', odd_numbers & multiples_of_three)
+print('Odd - multiples:', odd_numbers - multiples_of_three)
+print('Multiples - odd:', multiples_of_three - odd_numbers)
+print('Symmetric difference:', odd_numbers ^ multiples_of_three)
+
+
+"""Program 3.8: 3x3 matrix operations."""
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print('Matrix:')
+for row in matrix:
+    print(*row, sep='\t')
+for index, row in enumerate(matrix, 1):
+    print('Row', index, 'sum:', sum(row))
+print('Main diagonal sum:', sum((matrix[i][i] for i in range(3))))
+
+
+"""Program 3.9: student gradebook."""
+gradebook = {'Aarav': [85, 80, 90], 'Diya': [72, 78, 75], 'Kabir': [95, 92, 96], 'Meera': [88, 84, 86]}
+averages = {name: sum(marks) / len(marks) for name, marks in gradebook.items()}
+for name, average in sorted(averages.items(), key=lambda item: item[1], reverse=True):
+    print(name + ':', round(average, 2))
+top_student = max(averages, key=averages.get)
+print('Top student:', top_student, '(' + str(round(averages[top_student], 2)) + ')')
+
+
+"""Program 3.10: remove duplicates and compare lists."""
+count = int(input('How many numbers in list 1? '))
+list_one = [int(input('Number ' + str(i) + ': ')) for i in range(1, count + 1)]
+list_two = [int(value) for value in input('Enter list 2 numbers separated by spaces: ').split()]
+frequency = {}
+for number in list_one:
+    frequency[number] = frequency.get(number, 0) + 1
+print('Without duplicates:', list(set(list_one)))
+print('Only in list 1:', list(set(list_one) - set(list_two)))
+print('Frequency:', frequency)
+
+
+"""Program 3.11: simple inventory using functions."""
+inventory = {'pen': 10, 'notebook': 3, 'eraser': 6}
+
+def add_item(name, quantity):
+    inventory[name] = inventory.get(name, 0) + quantity
+
+def remove_item(name):
+    return inventory.pop(name, 'Item not found')
+
+def update_qty(name, quantity):
+    inventory[name] = quantity
+
+def display_inventory():
+    for name, quantity in sorted(inventory.items()):
+        print(name + ':', quantity)
+
+def low_stock():
+    return {name: qty for name, qty in inventory.items() if qty < 5}
+add_item('pencil', 4)
+update_qty('pen', 8)
+remove_item('eraser')
+display_inventory()
+print('Low stock:', low_stock())
+
+
+"""Program 3.12: to-do list with ordered tasks and unique tags."""
+tasks = []
+
+def add_task(task, tags):
+    tasks.append({'task': task, 'tags': set(tags)})
+
+def display_all():
+    for index, item in enumerate(tasks, 1):
+        print(str(index) + '.', item['task'], '-', ', '.join(sorted(item['tags'])))
+
+def find_by_tag(tag):
+    return [item['task'] for item in tasks if tag in item['tags']]
+add_task('Complete Python practical', ['study', 'python'])
+add_task('Buy notebook', ['personal', 'shopping'])
+add_task('Revise functions', ['study', 'python'])
+display_all()
+print("Tasks tagged 'study':", find_by_tag('study'))
